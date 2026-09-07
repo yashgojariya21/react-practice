@@ -30,7 +30,7 @@ export default function About() {
               to="yash"
               className="inline-block mt-6 px-6 py-2.5 bg-orange-700 text-white font-medium text-sm rounded-lg shadow hover:bg-orange-800 transition duration-200"
             >
-              Know More About Yash
+              Know More About Nested Route
             </Link>
           </div>
         </div>
