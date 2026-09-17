@@ -10,7 +10,6 @@ function useCurrencyInfo(currency) {
       .catch((err) => console.error("Currency API Error:", err));
     }, [currency]);
     
-    console.log("data>>>", data)
   return data;
 }
 

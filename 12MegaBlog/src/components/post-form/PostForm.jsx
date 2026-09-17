@@ -17,7 +17,7 @@ function PostForm({ post }) {
     });
 
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
     if (post) {
@@ -46,7 +46,7 @@ function PostForm({ post }) {
           userId: userData.$id,
         });
         if (dbPost) {
-          navigate(`/post/${post.$id}`);
+          navigate(`/post/${dbPost.$id}`);
         }
       }
     }
@@ -57,7 +57,7 @@ function PostForm({ post }) {
       return value
         .trim()
         .toLowerCase()
-        .replace(/^[a-zA-Z\d\s]+/g, "-")
+        .replace(/[^a-zA-Z\d\s]+/g, "-")
         .replace(/\s/g, "-");
 
     return "";
@@ -71,7 +71,7 @@ function PostForm({ post }) {
     });
 
     return () => {
-      subscription.unsubscription();
+      subscription.unsubscribe();
     };
   }, [watch, slugTransform, setValue]);
 
