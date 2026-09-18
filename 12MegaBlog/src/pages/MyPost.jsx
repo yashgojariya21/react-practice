@@ -10,7 +10,6 @@ function MyPost() {
   const dispatch = useDispatch();
 
   const userData = useSelector((state) => state.auth.userData);
-  console.log("userData>>", userData);
 
   useEffect(() => {
     if (userData) {
@@ -20,10 +19,6 @@ function MyPost() {
       });
     } else navigate("/");
   }, [navigate, dispatch]);
-
-  console.log("post>>", posts);
-
-console.log("lenght");
 
     if (posts.length === 0) {
     return (
