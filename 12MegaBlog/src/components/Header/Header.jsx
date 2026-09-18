@@ -23,8 +23,13 @@ function Header() {
       active: !authStatus,
     },
     {
-      name: "All Post",
+      name: "All Posts",
       slug: "/all-post",
+      active: authStatus,
+    },
+    {
+      name: "My Posts",
+      slug: "/my-post",
       active: authStatus,
     },
     {
@@ -43,7 +48,7 @@ function Header() {
               <Logo />
             </Link>
           </div>
-          <ul className="flex ml-auto gap-10 justify-center items-center">
+          <ul className="flex ml-auto gap-6 justify-center items-center">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name} className="">

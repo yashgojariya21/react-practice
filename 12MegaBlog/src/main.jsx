@@ -15,6 +15,7 @@ import Signup from "./pages/Signup.jsx";
 import {
   Protected,
 } from "./components/index.js";
+import MyPost from "./pages/MyPost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,15 @@ const router = createBrowserRouter([
             <AllPost />
           </Protected>
         ),
+      },
+      {
+        path: "/my-post",
+        element:  (
+          <Protected authentication>
+            {" "}
+            <MyPost />
+          </Protected>
+        )
       },
       {
         path: "/add-post",

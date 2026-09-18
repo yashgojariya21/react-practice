@@ -83,6 +83,19 @@ export class Service {
     }
   }
 
+  async getPostByUserId(userId) {
+    try {
+      return await this.database.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwriteCollectionId,
+        [Query.equal("userId", userId)],
+      );
+    } catch (error) {
+      console.log("Get error at get post by user id:", error);
+      return false;
+    }
+  }
+
   // file upload service
   async uploadFile(file) {
     try {
@@ -113,7 +126,7 @@ export class Service {
   //     return false;
   //   }
   // }
-    getFilePreview(fileId) {
+  getFilePreview(fileId) {
     if (!fileId) return "";
     try {
       return this.bucket.getFileView(config.appwriteBucketId, fileId);

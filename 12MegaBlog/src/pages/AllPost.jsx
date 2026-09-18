@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import appwriteService from "../appwrite/config";
 import { PostCard, Container } from "../components/index";
 import { useDispatch, useSelector } from "react-redux";
-import { setPost } from "../store/postSlice"
+import { setPost } from "../store/postSlice";
 
 const AllPost = () => {
   // const [posts, setPosts] = useState([]);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const posts = useSelector((state) => state.post.posts) || [];
 
@@ -21,6 +21,9 @@ const AllPost = () => {
   return (
     <div className="w-full py-8">
       <Container>
+        <h1 className="text-3xl bg-blue-100 rounded-xl px-10 py-4 mx-2">
+          All Posts
+        </h1>
         <div className="flex flex-wrap">
           {posts.map((post) => (
             <div key={post.$id} className="p-2 w-full">
